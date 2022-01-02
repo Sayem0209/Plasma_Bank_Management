@@ -1,4 +1,15 @@
 <!DOCTYPE html>
+<?php
+include 'core/Database.php';
+include'core/Format.php';
+include'class/System.php';
+$system = new System();
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+    $reg = $system->userSignup($_POST);
+}
+?>
 <html lang="en">
 
 <head>
@@ -113,6 +124,11 @@
             <div class="row">
                 <div class="col-8 offset-4">
                     <h2>Sign Up</h2>
+                    <?php
+                        if (isset($reg)) {
+                            echo $reg;
+                        }
+                    ?>
                 </div>
             </div>
             <div class="form-group row">
@@ -133,12 +149,12 @@
                     <input type="password" class="form-control" name="password" required="required">
                 </div>
             </div>
-            <div class="form-group row">
+            <!-- <div class="form-group row">
                 <label class="col-form-label col-4"><b> Confirm Password</b></label>
                 <div class="col-8">
                     <input type="password" class="form-control" name="confirm_password" required="required">
                 </div>
-            </div>
+            </div> -->
             <div class="form-group row">
                 <label class="col-form-label col-4"><b> Name</b></label>
                 <div class="col-8">
@@ -148,39 +164,49 @@
             <div class="form-group row">
                 <label class="col-form-label col-4"><b>Blood Group</b></label>
                 <div class="col-8">
-                    <select class="form-control" required>
+                    <select name="bloodGroup" class="form-control" required>
                         <option value="">Select your blood group</option>
-                        <option value="1"> A+</option>
-                        <option value="2"> A-</option>
-                        <option value="3"> B+</option>
-                        <option value="4"> B-</option>
-                        <option value="5"> A-</option>
-                        <option value="6"> AB+</option>
-                        <option value="7"> AB+</option>
-                        <option value="8"> O+</option>
-                        <option value="3"> O-</option>
+                        <option value="A+">A+</option>
+                        <option value="A-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B-">B-</option>
+                        <option value="A-">A-</option>
+                        <option value="AB+">AB+</option>
+                        <option value="7AB-">AB-</option>
+                        <option value="O+">O+</option>
+                        <option value="O-">O-</option>
                     </select>
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-form-label col-4"><b> Phone Number</b></label>
                 <div class="col-8">
-                    <input type="text" class="form-control" name="name" required="required">
+                    <input type="text" class="form-control" name="phone" required="required">
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-form-label col-4"><b> Address</b></label>
                 <div class="col-8">
-                    <input type="text" class="form-control" name="name" required="required">
+                    <input type="text" class="form-control" name="address" required="required">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-form-label col-4"><b>User Type</b></label>
+                <div class="col-8">
+                    <select class="form-control" name="userType" required>
+                        <option value="">User Type</option>
+                        <option value="1">Donor</option>
+                        <option value="2">Patient</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group row">
                 <div class="col-8 offset-4">
-                    <button type="submit" class="btn btn-primary btn-lg">Sign Up</button>
+                    <button type="submit" name="signup" class="btn btn-primary btn-lg">Sign Up</button>
                 </div>
             </div>
         </form>
-        <div class="text-center" style="color: yellow;">Already have an account? <a style="color: green;" href="login.php">Login here</a></div>
+        <div class="text-center" style="color: yellow;">Already have an account? <a style="color: green;" href="index.php">Login here</a></div>
     </div>
 </body>
 
