@@ -17,8 +17,8 @@ $value = mysqli_fetch_assoc($getMedicleInfo);
             </div>
             <div class="col-md-5">
                 <div class="card">
-                    <span align="center" style="color:#fff;font-weight: bold;font-size: 22px;">Plasma bank management System</span><br>
-                    <span align="center" style="color:#fff;font-weight: bold;font-size: 15px;">Donor Medicle History</span>
+                    <span align="center" style="color:#fff;font-weight: bold;font-size: 22px;">Plasma Bank Management System</span><br>
+                    <span align="center" style="color:#fff;font-weight: bold;font-size: 15px;">Donor Medical History</span>
 
                 </div>
             </div>
@@ -27,7 +27,7 @@ $value = mysqli_fetch_assoc($getMedicleInfo);
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Donor Medicle History</h5>
+                        <h5 class="card-title">Donor Medical History</h5>
                     </div>
                 </div>
             </div>
