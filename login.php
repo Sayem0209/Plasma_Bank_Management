@@ -13,7 +13,7 @@
 </head>
 <div>
     <div class="col-12 mb-2 ">
-        <h3 style="color: green;">Plasma Bank Management </h3>
+        <h3 style="color: green;">Plasma Bank Management System </h3>
     </div>
 
     <body class="text-center" data-gr-c-s-loaded="true">
