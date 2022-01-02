@@ -6,6 +6,6 @@ define("DB_USER", "root");
 
 define("DB_PASS", "");
 
-define("DB_NAME", "plasma_bank_management_system");
+define("DB_NAME", "plasmabankmanagement");
 ?>
 

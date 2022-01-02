@@ -1,7 +1,7 @@
 <?php
  include 'header.php';
  $getMedicleHistory = $system->getDonorMedicleHistory($user_id);
- $value = mysqli_fetch_assoc( $getMedicleHistory);
+ $value = mysqli_fetch_assoc($getMedicleHistory);
  if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update'])) {
 
   $updateInfo = $system->updateDonorMedicleHistory($_POST,$user_id);
