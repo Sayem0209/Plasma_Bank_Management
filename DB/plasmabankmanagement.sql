@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 02, 2022 at 08:43 AM
+-- Generation Time: Jan 02, 2022 at 01:17 PM
 -- Server version: 10.4.21-MariaDB
--- PHP Version: 7.4.25
+-- PHP Version: 7.4.24
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,43 +18,8 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `plasma_bank_management_system`
+-- Database: `plasmabankmanagement`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `blood_bank`
---
-
-CREATE TABLE `blood_bank` (
-  `id` int(11) NOT NULL,
-  `Dnum_In_BB` varchar(100) NOT NULL,
-  `Bank_Name` varchar(25) NOT NULL,
-  `Location` varchar(25) NOT NULL,
-  `Blood_Number_Units` int(11) NOT NULL,
-  `Contact_No` varchar(15) NOT NULL,
-  `Donor_Id` int(11) NOT NULL,
-  `Bank_Id` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `blood_bank`
---
-
-INSERT INTO `blood_bank` (`id`, `Dnum_In_BB`, `Bank_Name`, `Location`, `Blood_Number_Units`, `Contact_No`, `Donor_Id`, `Bank_Id`) VALUES
-(1, 'CBB-01', 'Chittagong Blood Bank', 'Chittagong', 1, '01837690914', 12, 'A+_01C'),
-(2, 'DBB-01', 'Dhaka Blood Bank', 'Dhaka', 2, '01714010869', 1, 'B+_01'),
-(3, 'DBB-02', 'Dhaka Blood Bank', 'Dhaka', 1, '01714010869', 2, 'A+_02'),
-(4, 'DBB-03', 'Dhaka Blood Bank', 'Dhaka', 2, '01714010869', 10, 'B+_02'),
-(5, 'KBB-01', 'Khulna Blood Bank', 'Khulna', 1, '01885455592', 3, 'O+_01'),
-(6, 'MBB-01', 'Mymensingh Blood Bank', 'Mymensingh', 2, '01521443904', 4, 'B+_01M'),
-(7, 'MBB-02', 'Mymensingh Blood Bank', 'Mymensingh', 1, '01521443904', 9, 'B+_02M'),
-(8, 'RBB-01', 'Rajshahi Blood Bank', 'Rajshahi', 1, '01770807108', 6, 'B+_01R'),
-(9, 'RNBB-01', 'Rangpur Blood Bank', 'Rangpur', 2, '01988877800', 7, 'AB+_01RN'),
-(10, 'SBB-01', 'Sylhet Blood Bank', 'Sylhet', 2, '01937591604', 5, 'O+_01S'),
-(11, 'SBB-02', 'Sylhet Blood Bank', 'Sylhet', 1, '01937591604', 8, 'AB+_01S'),
-(12, 'SBB-03', 'Sylhet Blood Bank', 'Sylhet', 2, '01937591604', 11, 'AB+_02S');
 
 -- --------------------------------------------------------
 
@@ -90,7 +55,8 @@ INSERT INTO `donor` (`Donor_Id`, `donor_username`, `Donor_Name`, `Address`, `Con
 (10, '', 'Tasnuva Tabassum', 'Dhaka', '01743039013', '1992-02-11', 'B+', ''),
 (11, '', 'Maruf Hasan', 'Sylhet', '01893918383', '1988-08-09', 'AB+', ''),
 (12, '', 'Piyal Hasan', 'Chittagong', '01812376168', '1990-02-26', 'A+', ''),
-(13, 'testdonor', 'Test Donor1', 'Dhaka1', '1234567891', NULL, 'O+', '827ccb0eea8a706c4c34a16891f84e7b');
+(13, 'testdonor', 'Test Donor1', 'Dhaka1', '1234567891', NULL, 'O+', '827ccb0eea8a706c4c34a16891f84e7b'),
+(14, 'mehrun', 'Mehrun Nessa', 'Dhaka Cantonment', '01994746544', NULL, 'AB+', '827ccb0eea8a706c4c34a16891f84e7b');
 
 -- --------------------------------------------------------
 
@@ -118,7 +84,8 @@ CREATE TABLE `donor_medical_history` (
 --
 
 INSERT INTO `donor_medical_history` (`id`, `donor_Id`, `Donor_Age`, `HB_Count`, `WBC_Count`, `RBC_Count`, `Is_Diabetic`, `Is_Alcoholic`, `is_covid`, `Height`, `Weight`, `Covid19_Recovery_Date`) VALUES
-(1, 13, 20, NULL, '3', '2', 'yes', 'no', 'yes', '5.5', NULL, '2022-01-01');
+(1, 13, 20, NULL, '3', '2', 'yes', 'no', 'yes', '5.5', NULL, '2022-01-01'),
+(2, 14, 20, NULL, '350', '300', 'yes', 'no', 'no', '5.5', NULL, '2022-01-01');
 
 -- --------------------------------------------------------
 
@@ -153,17 +120,11 @@ INSERT INTO `patient` (`Patient_Id`, `Patient_Name`, `Phone_Number`, `Address`, 
 (10, 'Saiful Islam', '01521249751', 'Rangpur', 'AB+', '', ''),
 (11, 'Anirban Sarker', '01990272384', 'Khulna', 'O+', '', ''),
 (12, 'Nur Alam', '01927932117', 'Rajshahi', 'B+', '', ''),
-(13, 'Test Patient1', '12345665', 'Jamalpur, Mymensingh, Ban', 'O-', 'testpatient', 'e10adc3949ba59abbe56e057f20f883e');
+(13, 'Test Patient1', '12345665', 'Jamalpur, Mymensingh, Ban', 'O-', 'testpatient', '827ccb0eea8a706c4c34a16891f84e7b');
 
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `blood_bank`
---
-ALTER TABLE `blood_bank`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `donor`
@@ -188,22 +149,16 @@ ALTER TABLE `patient`
 --
 
 --
--- AUTO_INCREMENT for table `blood_bank`
---
-ALTER TABLE `blood_bank`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-
---
 -- AUTO_INCREMENT for table `donor`
 --
 ALTER TABLE `donor`
-  MODIFY `Donor_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `Donor_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `donor_medical_history`
 --
 ALTER TABLE `donor_medical_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `patient`
